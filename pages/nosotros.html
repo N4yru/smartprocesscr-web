@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros | Smart Process CR</title>
+  <meta name="description" content="Conocé al equipo detrás de Smart Process CR. Andrés Zúñiga y David Ramírez, programadores costarricenses." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <style>
+    /* ── MISIÓN ── */
+    .mision-section { padding: 5.5rem 0; }
+    .mision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .mision-text h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 700; color: var(--navy); margin-bottom: 1rem; }
+    .mision-text p { color: var(--gray-mid); margin-bottom: 1rem; line-height: 1.75; font-size: 0.95rem; }
+    .mision-values { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    .mision-value { display: flex; gap: 12px; align-items: flex-start; }
+    .mision-value-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--red); flex-shrink: 0; margin-top: 6px;
+    }
+    .mision-value strong { display: block; color: var(--navy); font-size: 0.9rem; font-weight: 600; }
+    .mision-value span { font-size: 0.84rem; color: var(--gray-mid); }
+    .mision-img {
+      border-radius: 20px;
+      background: var(--off-white);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      border: 1px solid var(--gray-light);
+      font-size: 5rem;
+    }
+
+    /* ── EQUIPO ── */
+    .equipo-section { padding: 5.5rem 0; background: var(--off-white); }
+    .equipo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .equipo-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--gray-light);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .equipo-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .equipo-card-photo {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .equipo-card-body { padding: 1.8rem; }
+    .equipo-card-body h3 {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .equipo-card-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .equipo-card-body p { font-size: 0.875rem; color: var(--gray-mid); line-height: 1.7; margin-bottom: 1.2rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      background: rgba(27,58,107,0.07);
+      color: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(27,58,107,0.1);
+    }
+
+    /* ── HISTORIA ── */
+    .historia-section {
+      padding: 5.5rem 0;
+      background: var(--navy);
+    }
+    .historia-section .section-tag { color: #F4A0A3; }
+    .historia-section .section-title { color: var(--white); }
+    .timeline { display: flex; flex-direction: column; gap: 0; max-width: 680px; margin: 0 auto; }
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 38px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.1);
+    }
+    .timeline-dot {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .timeline-content { padding-top: 6px; }
+    .timeline-content strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-content p { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    @media (max-width: 640px) {
+      .mision-grid { grid-template-columns: 1fr; }
+      .equipo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="../index.html">Inicio</a>
+    <span>/</span>
+    <span>Nosotros</span>
+  </div>
+  <h1>Quiénes somos</h1>
+  <p>Dos programadores costarricenses con una misión: hacer que la tecnología trabaje para tu empresa.</p>
+</div>
+
+<!-- Misión -->
+<section class="mision-section">
+  <div class="section-inner">
+    <div class="mision-grid">
+      <div class="mision-text fade-in">
+        <span class="section-tag">Nuestra misión</span>
+        <h2>Tecnología con propósito, para Costa Rica</h2>
+        <p>Somos un emprendimiento costarricense enfocado en llevar soluciones tecnológicas de alto impacto a empresas que quieren crecer sin depender de procesos lentos y manuales.</p>
+        <p>Creemos que la automatización y el software bien diseñado no son solo para las grandes corporaciones. Con el enfoque correcto, cualquier empresa puede operar al nivel de un gigante.</p>
+        <div class="mision-values">
+          <div class="mision-value">
+            <div class="mision-value-dot"></div>
+            <div>
+              <strong>Cercanía y comunicación directa</strong>
+              <span>Trabajamos codo a codo con el cliente, sin intermediarios ni burocracia.</span>
+            </div>
+          </div>
+          <div class="mision-value">
+            <div class="mision-value-dot"></div>
+            <div>
+              <strong>Soluciones que realmente funcionan</strong>
+              <span>No entregamos código, entregamos resultados medibles en tu operación.</span>
+            </div>
+          </div>
+          <div class="mision-value">
+            <div class="mision-value-dot"></div>
+            <div>
+              <strong>Compromiso con el resultado final</strong>
+              <span>El proyecto no termina hasta que la solución esté funcionando correctamente.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mision-img fade-in">🇨🇷</div>
+    </div>
+  </div>
+</section>
+
+<!-- Equipo -->
+<section class="equipo-section">
+  <div class="section-inner">
+    <span class="section-tag">El equipo</span>
+    <h2 class="section-title" style="text-align:center;">Conocé a los programadores</h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto 3rem;">Personas reales, comprometidas con tu proyecto de principio a fin.</p>
+    <div class="equipo-grid">
+
+      <div class="equipo-card fade-in">
+        <img src="../imagenes/andres.jpeg" alt="Andrés Zúñiga" class="equipo-card-photo" />
+        <div class="equipo-card-body">
+          <h3>Andrés Zúñiga</h3>
+          <p class="equipo-card-role">Desarrollador & Automatización</p>
+          <p>Especialista en automatización de procesos y desarrollo web. Apasionado por crear soluciones que simplifiquen la operación de empresas costarricenses.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Excel & VBA</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Automatización</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipo-card fade-in">
+        <img src="../imagenes/david.jpeg" alt="David Ramírez" class="equipo-card-photo" />
+        <div class="equipo-card-body">
+          <h3>David Ramírez</h3>
+          <p class="equipo-card-role">Desarrollador de Software</p>
+          <p>Desarrollador enfocado en construir aplicaciones robustas y escalables. Comprometido con entregar código limpio y soluciones que realmente resuelven problemas.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">APIs</span>
+            <span class="skill-tag">Bases de datos</span>
+            <span class="skill-tag">Cloud</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Historia -->
+<section class="historia-section">
+  <div class="section-inner">
+    <span class="section-tag">Nuestra historia</span>
+    <h2 class="section-title">Cómo llegamos hasta acá</h2>
+    <div class="timeline" style="margin-top:2.5rem;">
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot">🌱</div>
+        <div class="timeline-content">
+          <strong>El inicio</strong>
+          <p>Dos programadores con visión compartida deciden unirse para crear soluciones tecnológicas para el mercado costarricense.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot">🔧</div>
+        <div class="timeline-content">
+          <strong>Primeros proyectos</strong>
+          <p>Comenzamos con automatizaciones en Excel y pequeños sistemas internos, aprendiendo de cada cliente y perfeccionando nuestra metodología.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot">🚀</div>
+        <div class="timeline-content">
+          <strong>Smart Process CR</strong>
+          <p>Formalizamos el emprendimiento con identidad propia, enfocados en ofrecer un servicio integral y profesional a empresas de todos los tamaños.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot">🎯</div>
+        <div class="timeline-content">
+          <strong>Hoy</strong>
+          <p>Seguimos creciendo, ampliando nuestro portafolio de servicios y ayudando a más empresas costarricenses a transformar sus procesos con tecnología.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/global.js"></script>
+</body>
+</html>

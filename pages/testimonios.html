@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonios | Smart Process CR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <style>
+    .testimonios-section { padding: 5.5rem 0; }
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .testimonial:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .quote-mark {
+      font-family: var(--font-head);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--blue-light);
+      opacity: 0.2;
+      position: absolute;
+      top: 8px;
+      left: 18px;
+    }
+    .stars { color: #F5A623; font-size: 0.85rem; margin-bottom: 0.8rem; }
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      padding-top: 0.5rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid var(--gray-light);
+      padding-top: 1.2rem;
+    }
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .av-navy { background: var(--navy); }
+    .av-blue { background: var(--blue); }
+    .av-red  { background: var(--red); }
+    .av-teal { background: #0F8080; }
+    .av-green { background: #2E7D32; }
+    .av-purple { background: #6A1B9A; }
+    .t-info strong { display: block; font-size: 0.875rem; font-weight: 600; color: var(--navy); }
+    .t-info span { font-size: 0.78rem; color: var(--gray-mid); }
+
+    /* CTA bottom */
+    .cta-bottom {
+      background: var(--off-white);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .cta-bottom h2 { font-family: var(--font-head); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--navy); margin-bottom: 0.8rem; }
+    .cta-bottom p { color: var(--gray-mid); margin-bottom: 2rem; }
+
+    @media (max-width: 900px) { .testimonios-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .testimonios-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="../index.html">Inicio</a>
+    <span>/</span>
+    <span>Testimonios</span>
+  </div>
+  <h1>Lo que dicen nuestros clientes</h1>
+  <p>Resultados reales de empresas que confiaron en Smart Process CR.</p>
+</div>
+
+<section class="testimonios-section">
+  <div class="section-inner">
+    <div class="testimonios-grid">
+
+      <div class="testimonial fade-in">
+        <div class="quote-mark">"</div>
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">El dashboard que nos desarrollaron transformó la forma en que presentamos datos a gerencia. Lo que antes tomaba dos horas cada semana ahora se genera automáticamente en segundos.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar av-navy">MC</div>
+          <div class="t-info">
+            <strong>María C.</strong>
+            <span>Gerente Administrativa · Empresa distribuidora</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <div class="quote-mark">"</div>
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">Necesitábamos un sistema para manejar citas y clientes. Smart Process CR lo entregó exactamente como lo pedimos, a tiempo y con soporte posterior excelente.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar av-blue">JR</div>
+          <div class="t-info">
+            <strong>Jorge R.</strong>
+            <span>Dueño · Negocio de servicios</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <div class="quote-mark">"</div>
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">La automatización de nuestros reportes de ventas nos ahorró horas de trabajo manual. El equipo trabajó con nosotros para entender exactamente lo que necesitábamos.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar av-red">LP</div>
+          <div class="t-info">
+            <strong>Laura P.</strong>
+            <span>Coordinadora de Ventas · PyME local</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <div class="quote-mark">"</div>
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">Increíble la diferencia que hace tener un sistema bien diseñado. Antes perdíamos tiempo buscando información en hojas de Excel desordenadas. Ahora todo está en un solo lugar.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar av-teal">CR</div>
+          <div class="t-info">
+            <strong>Carlos R.</strong>
+            <span>Director de Operaciones · Empresa logística</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <div class="quote-mark">"</div>
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">Muy profesionales y comprometidos. Entregaron el proyecto en el tiempo acordado y siempre estuvieron disponibles para resolver dudas durante el proceso.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar av-green">AM</div>
+          <div class="t-info">
+            <strong>Ana M.</strong>
+            <span>Gerente General · Empresa de retail</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <div class="quote-mark">"</div>
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">Lo mejor fue la comunicación directa con los desarrolladores. Sin intermediarios, sin confusiones. Sabían exactamente lo que necesitaba y lo ejecutaron perfecto.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar av-purple">RV</div>
+          <div class="t-info">
+            <strong>Roberto V.</strong>
+            <span>Fundador · Startup tecnológica</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="cta-bottom">
+  <div class="section-inner">
+    <h2>¿Querés ser el próximo caso de éxito?</h2>
+    <p>Contanos tu proyecto y empecemos a trabajar juntos.</p>
+    <a href="contacto.html" class="btn-primary">Solicitar consulta gratis</a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/global.js"></script>
+</body>
+</html>
