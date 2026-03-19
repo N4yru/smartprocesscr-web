@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nosotros | Smart Process CR</title>
+<link rel="stylesheet" href="../css/global.css"/>
+<style>
+.mision { padding: 5.5rem 0; }
+.mision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.mision-text h2 { font-size: clamp(1.7rem,2.8vw,2.3rem); font-weight: 800; color: var(--text1); margin-bottom: 1rem; letter-spacing: -.3px; }
+.mision-text h2 em { font-style: normal; color: var(--blue-h); }
+.mision-text p { color: var(--text2); margin-bottom: 1rem; line-height: 1.8; font-size: .95rem; }
+.val-list { display: flex; flex-direction: column; gap: .8rem; margin-top: 2rem; }
+.val {
+  display: flex; gap: 14px; padding: 1rem 1.2rem;
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: var(--r-md); transition: border-color .25s;
+}
+.val:hover { border-color: var(--border); }
+.val-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 7px; }
+.val strong { display: block; font-size: .88rem; font-weight: 700; color: var(--text1); margin-bottom: .15rem; }
+.val span { font-size: .82rem; color: var(--text2); }
+.mision-stats {
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: var(--r-xl); padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+}
+.stat-box {
+  background: var(--bg); border: 1px solid var(--border2);
+  border-radius: var(--r-lg); padding: 1.5rem; text-align: center;
+  transition: border-color .25s;
+}
+.stat-box:hover { border-color: var(--border); }
+.stat-box .n { font-family: var(--font-h); font-size: 1.8rem; font-weight: 800; color: var(--text1); }
+.stat-box .l { font-size: .75rem; color: var(--text3); margin-top: .2rem; }
+
+/* EQUIPO */
+.equipo-sec { padding: 5.5rem 0; background: var(--bg2); border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); }
+.team-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; max-width: 860px; margin: 0 auto; }
+.tc {
+  background: var(--bg); border: 1px solid var(--border2);
+  border-radius: var(--r-lg); overflow: hidden;
+  transition: all .35s ease;
+}
+.tc:hover { border-color: var(--border); box-shadow: var(--sh-card); transform: translateY(-5px); }
+.tc-wrap { position: relative; height: 310px; overflow: hidden; }
+.tc-wrap img { width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease; display:block; }
+.tc:hover .tc-wrap img { transform: scale(1.05); }
+.tc-overlay { position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,transparent 55%); }
+.tc-body { padding: 1.8rem; }
+.tc-body h3 { font-size:1.15rem;font-weight:800;color:var(--text1);margin-bottom:.2rem; }
+.tc-role { font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-h);margin-bottom:1rem; }
+.tc-body p { font-size:.875rem;color:var(--text2);line-height:1.75;margin-bottom:1.2rem; }
+.chips { display:flex;flex-wrap:wrap;gap:5px; }
+.chip { background:rgba(47,126,199,.1);border:1px solid rgba(47,126,199,.14);color:var(--blue-h);font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:20px; }
+
+/* HISTORIA */
+.historia { padding: 5.5rem 0; }
+.tl { display: flex; flex-direction: column; max-width: 680px; margin: 3rem auto 0; }
+.tl-item { display: flex; gap: 2rem; padding-bottom: 3rem; position: relative; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item:not(:last-child)::before { content:'';position:absolute;left:19px;top:42px;bottom:0;width:1px;background:var(--border2); }
+.tl-ico { width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;z-index:1; }
+.tl-body { padding-top:8px; }
+.tl-body strong { display:block;font-family:var(--font-h);font-size:.98rem;font-weight:700;color:var(--text1);margin-bottom:.4rem; }
+.tl-body p { font-size:.875rem;color:var(--text2);line-height:1.7; }
+
+@media(max-width:780px){ .mision-grid{grid-template-columns:1fr;gap:3rem} .team-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Inicio</a><span>/</span><span>Nosotros</span></div>
+  <h1>Quiénes somos</h1>
+  <p>Dos programadores costarricenses con una misión: hacer que la tecnología trabaje para tu empresa.</p>
+</div>
+<section class="mision">
+  <div class="section-inner">
+    <div class="mision-grid">
+      <div class="reveal left">
+        <span class="tag">Nuestra misión</span>
+        <h2>Tecnología con propósito,<br><em>para Costa Rica</em></h2>
+        <p>Somos un emprendimiento costarricense enfocado en llevar soluciones tecnológicas de alto impacto a empresas que quieren crecer sin depender de procesos lentos y manuales.</p>
+        <p>Creemos que la automatización y el software bien diseñado no son solo para las grandes corporaciones.</p>
+        <div class="val-list">
+          <div class="val"><div class="val-dot"></div><div><strong>Comunicación directa</strong><span>Trabajamos codo a codo con el cliente, sin intermediarios.</span></div></div>
+          <div class="val"><div class="val-dot"></div><div><strong>Resultados medibles</strong><span>No entregamos código, entregamos resultados reales en tu operación.</span></div></div>
+          <div class="val"><div class="val-dot"></div><div><strong>Compromiso total</strong><span>El proyecto no termina hasta que la solución funcione perfectamente.</span></div></div>
+        </div>
+      </div>
+      <div class="mision-stats reveal right">
+        <div class="stat-box"><div class="n">100%</div><div class="l">Personalizado</div></div>
+        <div class="stat-box"><div class="n">3</div><div class="l">Servicios especializados</div></div>
+        <div class="stat-box"><div class="n">2</div><div class="l">Desarrolladores</div></div>
+        <div class="stat-box"><div class="n">CR 🇨🇷</div><div class="l">Enfoque local</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="equipo-sec">
+  <div class="section-inner">
+    <span class="tag">El equipo</span>
+    <h2 class="h-title" style="text-align:center">Los <em>programadores</em></h2>
+    <p class="h-sub" style="text-align:center;margin:0 auto 3rem">Personas reales, comprometidas con tu proyecto de principio a fin.</p>
+    <div class="team-grid">
+      <div class="tc reveal up">
+        <div class="tc-wrap"><img src="../imagenes/andres.jpeg" alt="Andrés Zúñiga"/><div class="tc-overlay"></div></div>
+        <div class="tc-body">
+          <h3>Andrés Zúñiga</h3>
+          <p class="tc-role">Desarrollador & Automatización</p>
+          <p>Especialista en automatización de procesos y desarrollo web. Apasionado por crear soluciones que simplifiquen la operación de empresas costarricenses.</p>
+          <div class="chips"><span class="chip">Excel & VBA</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">SQL</span><span class="chip">Automatización</span></div>
+        </div>
+      </div>
+      <div class="tc reveal up" style="transition-delay:.12s">
+        <div class="tc-wrap"><img src="../imagenes/david.jpeg" alt="David Ramírez"/><div class="tc-overlay"></div></div>
+        <div class="tc-body">
+          <h3>David Ramírez</h3>
+          <p class="tc-role">Desarrollador de Software</p>
+          <p>Desarrollador enfocado en construir aplicaciones robustas y escalables. Comprometido con código limpio y soluciones que realmente resuelven problemas.</p>
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">APIs</span><span class="chip">Bases de datos</span><span class="chip">Cloud</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="historia">
+  <div class="section-inner">
+    <span class="tag">Nuestra historia</span>
+    <h2 class="h-title" style="text-align:center">Cómo llegamos <em>hasta acá</em></h2>
+    <div class="tl">
+      <div class="tl-item reveal up"><div class="tl-ico">🌱</div><div class="tl-body"><strong>El inicio</strong><p>Dos programadores con visión compartida deciden unirse para crear soluciones para el mercado costarricense.</p></div></div>
+      <div class="tl-item reveal up"><div class="tl-ico">🔧</div><div class="tl-body"><strong>Primeros proyectos</strong><p>Comenzamos con automatizaciones en Excel y sistemas internos, aprendiendo de cada cliente y perfeccionando la metodología.</p></div></div>
+      <div class="tl-item reveal up"><div class="tl-ico">🚀</div><div class="tl-body"><strong>Smart Process CR</strong><p>Formalizamos el emprendimiento con identidad propia, enfocados en ofrecer un servicio integral y profesional.</p></div></div>
+      <div class="tl-item reveal up"><div class="tl-ico">🎯</div><div class="tl-body"><strong>Hoy</strong><p>Seguimos creciendo y ayudando a más empresas costarricenses a transformar sus procesos con tecnología.</p></div></div>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

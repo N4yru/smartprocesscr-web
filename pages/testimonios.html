@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Testimonios | Smart Process CR</title>
+<link rel="stylesheet" href="../css/global.css"/>
+<style>
+.t-sec { padding: 5.5rem 0; }
+.t-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.t-card {
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: var(--r-lg); padding: 2rem;
+  position: relative; transition: all .35s ease; overflow: hidden;
+}
+.t-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--red));transform:scaleX(0);transition:transform .4s ease; }
+.t-card:hover { border-color:var(--border);box-shadow:var(--sh-blue);transform:translateY(-4px); }
+.t-card:hover::before { transform:scaleX(1); }
+.q { font-family:var(--font-h);font-size:3.5rem;line-height:1;color:var(--blue-h);opacity:.2;margin-bottom:.3rem; }
+.stars { color:#F5A623;font-size:.85rem;margin-bottom:.8rem;letter-spacing:2px; }
+.t-text { font-size:.875rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem; }
+.t-author { display:flex;align-items:center;gap:10px;border-top:1px solid var(--border2);padding-top:1.2rem; }
+.av { width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:.88rem;color:#fff;flex-shrink:0; }
+.a1{background:#1B3A6B}.a2{background:#2F7EC7}.a3{background:#C0272D}.a4{background:#0F8080}.a5{background:#2E7D32}.a6{background:#6A1B9A}
+.t-info strong { display:block;font-size:.875rem;font-weight:600;color:var(--text1); }
+.t-info span   { font-size:.78rem;color:var(--text3); }
+.cta-b { padding:5.5rem 0;text-align:center; }
+.cta-b h2 { font-size:clamp(1.7rem,2.5vw,2.2rem);font-weight:800;color:var(--text1);margin-bottom:.8rem;letter-spacing:-.3px; }
+.cta-b p  { color:var(--text2);margin-bottom:2.5rem; }
+@media(max-width:900px){.t-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.t-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Inicio</a><span>/</span><span>Testimonios</span></div>
+  <h1>Lo que dicen nuestros clientes</h1>
+  <p>Resultados reales de empresas que confiaron en Smart Process CR.</p>
+</div>
+<section class="t-sec">
+  <div class="section-inner">
+    <div class="t-grid">
+      <div class="t-card reveal up"><div class="q">"</div><p class="stars">★★★★★</p><p class="t-text">El dashboard que nos desarrollaron transformó la forma en que presentamos datos a gerencia. Lo que antes tomaba dos horas ahora se genera automáticamente en segundos.</p><div class="t-author"><div class="av a1">MC</div><div class="t-info"><strong>María C.</strong><span>Gerente Administrativa · Empresa distribuidora</span></div></div></div>
+      <div class="t-card reveal up" style="transition-delay:.08s"><div class="q">"</div><p class="stars">★★★★★</p><p class="t-text">Necesitábamos un sistema para manejar citas y clientes. Smart Process CR lo entregó exactamente como lo pedimos, a tiempo y con soporte excelente.</p><div class="t-author"><div class="av a2">JR</div><div class="t-info"><strong>Jorge R.</strong><span>Dueño · Negocio de servicios</span></div></div></div>
+      <div class="t-card reveal up" style="transition-delay:.16s"><div class="q">"</div><p class="stars">★★★★★</p><p class="t-text">La automatización de nuestros reportes de ventas nos ahorró horas de trabajo manual. El equipo trabajó con nosotros para entender exactamente lo que necesitábamos.</p><div class="t-author"><div class="av a3">LP</div><div class="t-info"><strong>Laura P.</strong><span>Coordinadora de Ventas · PyME local</span></div></div></div>
+      <div class="t-card reveal up"><div class="q">"</div><p class="stars">★★★★★</p><p class="t-text">Increíble la diferencia que hace tener un sistema bien diseñado. Antes perdíamos tiempo buscando información en hojas desordenadas. Ahora todo está en un solo lugar.</p><div class="t-author"><div class="av a4">CR</div><div class="t-info"><strong>Carlos R.</strong><span>Director de Operaciones · Empresa logística</span></div></div></div>
+      <div class="t-card reveal up" style="transition-delay:.08s"><div class="q">"</div><p class="stars">★★★★★</p><p class="t-text">Muy profesionales y comprometidos. Entregaron el proyecto en el tiempo acordado y siempre estuvieron disponibles para resolver cualquier duda.</p><div class="t-author"><div class="av a5">AM</div><div class="t-info"><strong>Ana M.</strong><span>Gerente General · Empresa de retail</span></div></div></div>
+      <div class="t-card reveal up" style="transition-delay:.16s"><div class="q">"</div><p class="stars">★★★★★</p><p class="t-text">Lo mejor fue la comunicación directa con los desarrolladores. Sin intermediarios, sin confusiones. Sabían exactamente lo que necesitaba y lo ejecutaron perfecto.</p><div class="t-author"><div class="av a6">RV</div><div class="t-info"><strong>Roberto V.</strong><span>Fundador · Startup tecnológica</span></div></div></div>
+    </div>
+  </div>
+</section>
+<div class="cta-b">
+  <div class="section-inner">
+    <span class="tag" style="margin-bottom:1.5rem">Tu turno</span>
+    <h2>¿Querés ser el próximo caso de éxito?</h2>
+    <p>Contanos tu proyecto y empecemos a trabajar juntos.</p>
+    <a href="contacto.html" class="btn btn-red">Solicitar consulta gratis →</a>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>
