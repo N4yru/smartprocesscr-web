@@ -1,146 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios | Smart Process CR</title>
-  <meta name="description" content="Automatización de procesos, desarrollo de software y dashboards en Excel. Servicios de Smart Process CR para empresas en Costa Rica." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/global.css"/>
   <style>
-    .services-page { padding: 5rem 0; }
+  .services-page{padding:5.5rem 0}
+  .service-block{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:4.5rem 0;border-bottom:1px solid var(--border-subtle)}
+  .service-block:last-child{border-bottom:none}
+  .service-block.reverse .service-visual{order:-1}
+  .srv-icon-big{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem}
+  .srv-icon-big.auto{background:rgba(27,58,107,.3);border:1px solid rgba(47,126,199,.2)}
+  .srv-icon-big.dev{background:rgba(47,126,199,.2);border:1px solid rgba(91,174,232,.2)}
+  .srv-icon-big.dash{background:rgba(192,39,45,.2);border:1px solid rgba(192,39,45,.25)}
+  .service-content h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;color:var(--text-primary);margin-bottom:.8rem;letter-spacing:-.3px}
+  .service-content p{color:var(--text-secondary);margin-bottom:1.8rem;line-height:1.8;font-size:.95rem}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:2rem}
+  .feature-item{display:flex;align-items:flex-start;gap:8px;font-size:.83rem;color:var(--text-secondary)}
+  .feature-item::before{content:'✓';color:var(--blue-light);font-weight:800;flex-shrink:0;margin-top:1px}
+  .service-visual{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:3rem;display:flex;align-items:center;justify-content:center;min-height:320px;font-size:7rem;position:relative;overflow:hidden}
+  .service-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(47,126,199,.08) 0%,transparent 70%)}
 
-    .service-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      padding: 4rem 0;
-      border-bottom: 1px solid var(--gray-light);
-    }
-    .service-block:last-child { border-bottom: none; }
-    .service-block.reverse .service-visual { order: -1; }
+  /* Proceso */
+  .proceso-section{padding:5.5rem 0;background:var(--bg-card);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+  .proceso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+  .proceso-card{background:var(--bg-dark);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:2rem;position:relative;transition:all .3s ease}
+  .proceso-card:hover{border-color:var(--border-glass);box-shadow:var(--shadow-blue);transform:translateY(-4px)}
+  .proceso-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);transform:scaleX(0);transition:transform .4s ease}
+  .proceso-card:hover::before{transform:scaleX(1)}
+  .paso-num{font-family:var(--font-head);font-size:3rem;font-weight:800;color:rgba(47,126,199,.12);line-height:1;margin-bottom:1rem}
+  .proceso-card h3{font-size:.95rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem}
+  .proceso-card p{font-size:.83rem;color:var(--text-secondary);line-height:1.65}
 
-    .service-icon-big {
-      width: 68px;
-      height: 68px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      margin-bottom: 1.3rem;
-    }
-    .ic-auto  { background: rgba(27,58,107,0.08); }
-    .ic-dev   { background: rgba(47,126,199,0.1); }
-    .ic-dash  { background: rgba(192,39,45,0.08); }
-
-    .service-content h2 {
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.8rem;
-    }
-    .service-content p {
-      color: var(--gray-mid);
-      margin-bottom: 1.5rem;
-      line-height: 1.75;
-    }
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-bottom: 1.8rem;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: var(--gray-dark);
-    }
-    .feature-list li .check {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: rgba(47,126,199,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: var(--blue);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .service-visual {
-      background: var(--off-white);
-      border-radius: 20px;
-      padding: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 300px;
-      font-size: 6rem;
-      border: 1px solid var(--gray-light);
-    }
-
-    /* Proceso */
-    .proceso-section {
-      padding: 5rem 0;
-      background: var(--navy);
-    }
-    .proceso-section .section-tag { color: #F4A0A3; }
-    .proceso-section .section-title { color: var(--white); }
-    .proceso-section .section-sub { color: rgba(255,255,255,0.6); }
-    .proceso-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      counter-reset: steps;
-    }
-    .proceso-step {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-md);
-      padding: 1.8rem;
-      position: relative;
-    }
-    .step-num {
-      font-family: var(--font-head);
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.08);
-      line-height: 1;
-      margin-bottom: 0.8rem;
-    }
-    .proceso-step h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.4rem; }
-    .proceso-step p { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
-
-    @media (max-width: 900px) {
-      .service-block { grid-template-columns: 1fr; gap: 2rem; }
-      .service-block.reverse .service-visual { order: 0; }
-      .proceso-steps { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .proceso-steps { grid-template-columns: 1fr; }
-    }
+  @media(max-width:900px){
+    .service-block{grid-template-columns:1fr;gap:2.5rem}
+    .service-block.reverse .service-visual{order:0}
+    .feature-grid{grid-template-columns:1fr}
+    .proceso-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:540px){.proceso-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-
 <div id="nav-placeholder"></div>
-
 <div class="page-hero">
-  <div class="breadcrumb">
-    <a href="../index.html">Inicio</a>
-    <span>/</span>
-    <span>Servicios</span>
-  </div>
+  <div class="breadcrumb"><a href="../index.html">Inicio</a><span>/</span><span>Servicios</span></div>
   <h1>Nuestros servicios</h1>
   <p>Soluciones tecnológicas a medida para empresas costarricenses que quieren operar mejor.</p>
 </div>
@@ -148,103 +52,81 @@
 <section class="services-page">
   <div class="section-inner">
 
-    <!-- Automatización -->
     <div class="service-block" id="automatizacion">
-      <div class="service-content fade-in">
-        <div class="service-icon-big ic-auto">⚙️</div>
+      <div class="service-content fade-left">
+        <div class="srv-icon-big auto">⚙️</div>
         <span class="section-tag">Servicio 01</span>
         <h2>Automatización de Procesos</h2>
         <p>Convertimos flujos de trabajo manuales y repetitivos en procesos automáticos que operan sin intervención humana, reduciendo el tiempo y los errores en tu operación diaria.</p>
-        <ul class="feature-list">
-          <li><span class="check">✓</span> Automatización con macros y VBA en Excel</li>
-          <li><span class="check">✓</span> Integraciones entre sistemas empresariales</li>
-          <li><span class="check">✓</span> Flujos de aprobación y notificaciones automáticas</li>
-          <li><span class="check">✓</span> Procesamiento y limpieza de datos masivos</li>
-          <li><span class="check">✓</span> Scripts de automatización de tareas repetitivas</li>
-          <li><span class="check">✓</span> Generación automática de reportes periódicos</li>
-        </ul>
-        <a href="contacto.html" class="btn-primary">Solicitar este servicio</a>
+        <div class="feature-grid">
+          <div class="feature-item">Macros y VBA en Excel</div>
+          <div class="feature-item">Integraciones entre sistemas</div>
+          <div class="feature-item">Flujos de aprobación automáticos</div>
+          <div class="feature-item">Procesamiento masivo de datos</div>
+          <div class="feature-item">Reportes automáticos periódicos</div>
+          <div class="feature-item">Scripts de tareas repetitivas</div>
+        </div>
+        <a href="contacto.html" class="btn-primary">Solicitar este servicio →</a>
       </div>
-      <div class="service-visual fade-in">⚙️</div>
+      <div class="service-visual fade-right">⚙️</div>
     </div>
 
-    <!-- Software -->
     <div class="service-block reverse" id="software">
-      <div class="service-content fade-in">
-        <div class="service-icon-big ic-dev">💻</div>
+      <div class="service-content fade-right">
+        <div class="srv-icon-big dev">💻</div>
         <span class="section-tag">Servicio 02</span>
         <h2>Desarrollo de Software</h2>
         <p>Creamos aplicaciones web y herramientas digitales a medida que resuelven los problemas específicos de tu negocio. Desde sistemas internos hasta plataformas completas en la nube.</p>
-        <ul class="feature-list">
-          <li><span class="check">✓</span> Aplicaciones web modernas con React</li>
-          <li><span class="check">✓</span> Sistemas de gestión internos (CRM, inventario)</li>
-          <li><span class="check">✓</span> APIs e integraciones con plataformas externas</li>
-          <li><span class="check">✓</span> Plataformas SaaS escalables en la nube</li>
-          <li><span class="check">✓</span> Bases de datos y arquitectura backend</li>
-          <li><span class="check">✓</span> Mantenimiento y soporte continuo</li>
-        </ul>
-        <a href="contacto.html" class="btn-primary">Solicitar este servicio</a>
+        <div class="feature-grid">
+          <div class="feature-item">Aplicaciones web con React</div>
+          <div class="feature-item">Sistemas de gestión (CRM, etc.)</div>
+          <div class="feature-item">APIs e integraciones</div>
+          <div class="feature-item">Plataformas SaaS escalables</div>
+          <div class="feature-item">Bases de datos y backend</div>
+          <div class="feature-item">Mantenimiento y soporte</div>
+        </div>
+        <a href="contacto.html" class="btn-primary">Solicitar este servicio →</a>
       </div>
-      <div class="service-visual fade-in">💻</div>
+      <div class="service-visual fade-left">💻</div>
     </div>
 
-    <!-- Dashboards -->
     <div class="service-block" id="dashboards">
-      <div class="service-content fade-in">
-        <div class="service-icon-big ic-dash">📈</div>
+      <div class="service-content fade-left">
+        <div class="srv-icon-big dash">📈</div>
         <span class="section-tag">Servicio 03</span>
         <h2>Dashboards y Reportería en Excel</h2>
         <p>Transformamos hojas de cálculo complicadas en tableros de control visuales, dinámicos y fáciles de interpretar. Tomá mejores decisiones con datos claros al instante.</p>
-        <ul class="feature-list">
-          <li><span class="check">✓</span> Dashboards interactivos con gráficos profesionales</li>
-          <li><span class="check">✓</span> Reportes automáticos con actualización dinámica</li>
-          <li><span class="check">✓</span> Power Query y Power Pivot para análisis avanzado</li>
-          <li><span class="check">✓</span> Indicadores clave (KPIs) personalizados</li>
-          <li><span class="check">✓</span> Tablas dinámicas y segmentación de datos</li>
-          <li><span class="check">✓</span> Integración con múltiples fuentes de datos</li>
-        </ul>
-        <a href="contacto.html" class="btn-primary">Solicitar este servicio</a>
+        <div class="feature-grid">
+          <div class="feature-item">Dashboards interactivos</div>
+          <div class="feature-item">Reportes con actualización dinámica</div>
+          <div class="feature-item">Power Query y Power Pivot</div>
+          <div class="feature-item">KPIs personalizados</div>
+          <div class="feature-item">Tablas dinámicas avanzadas</div>
+          <div class="feature-item">Múltiples fuentes de datos</div>
+        </div>
+        <a href="contacto.html" class="btn-primary">Solicitar este servicio →</a>
       </div>
-      <div class="service-visual fade-in">📊</div>
+      <div class="service-visual fade-right">📊</div>
     </div>
 
   </div>
 </section>
 
-<!-- Proceso de trabajo -->
 <section class="proceso-section">
   <div class="section-inner">
     <span class="section-tag">Cómo trabajamos</span>
-    <h2 class="section-title">Nuestro proceso</h2>
-    <p class="section-sub">Un flujo claro y transparente de principio a fin para que siempre sepas en qué punto está tu proyecto.</p>
-    <div class="proceso-steps">
-      <div class="proceso-step fade-in">
-        <div class="step-num">01</div>
-        <h3>Consulta inicial</h3>
-        <p>Escuchamos tu necesidad, entendemos tu negocio y definimos juntos el alcance de la solución.</p>
-      </div>
-      <div class="proceso-step fade-in">
-        <div class="step-num">02</div>
-        <h3>Propuesta y diseño</h3>
-        <p>Te presentamos una propuesta detallada con tiempos, costos y el plan de trabajo completo.</p>
-      </div>
-      <div class="proceso-step fade-in">
-        <div class="step-num">03</div>
-        <h3>Desarrollo</h3>
-        <p>Ejecutamos la solución con revisiones periódicas para que estés al tanto de cada avance.</p>
-      </div>
-      <div class="proceso-step fade-in">
-        <div class="step-num">04</div>
-        <h3>Entrega y soporte</h3>
-        <p>Entregamos la solución funcionando y brindamos soporte post-entrega para garantizar el éxito.</p>
-      </div>
+    <h2 class="section-title">Nuestro <span>proceso</span></h2>
+    <p class="section-sub">Transparencia total de principio a fin para que siempre sepas en qué punto está tu proyecto.</p>
+    <div class="proceso-grid">
+      <div class="proceso-card fade-up"><div class="paso-num">01</div><h3>Consulta inicial</h3><p>Escuchamos tu necesidad, entendemos tu negocio y definimos el alcance de la solución.</p></div>
+      <div class="proceso-card fade-up" style="transition-delay:.1s"><div class="paso-num">02</div><h3>Propuesta</h3><p>Te presentamos una propuesta detallada con tiempos, costos y el plan de trabajo completo.</p></div>
+      <div class="proceso-card fade-up" style="transition-delay:.2s"><div class="paso-num">03</div><h3>Desarrollo</h3><p>Ejecutamos la solución con revisiones periódicas para que estés al tanto de cada avance.</p></div>
+      <div class="proceso-card fade-up" style="transition-delay:.3s"><div class="paso-num">04</div><h3>Entrega y soporte</h3><p>Entregamos funcionando y brindamos soporte post-entrega para garantizar el éxito.</p></div>
     </div>
   </div>
 </section>
 
 <div id="footer-placeholder"></div>
-
 <script src="../js/components.js"></script>
-<script src="../js/global.js"></script>
 </body>
 </html>
