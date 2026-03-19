@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Process CR | Automatización y Desarrollo de Software</title>
+  <meta name="description" content="Automatización de procesos, desarrollo de software a medida y dashboards en Excel para empresas en Costa Rica." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --blue: #2F7EC7;
+      --blue-light: #4D9FE0;
+      --red: #C0272D;
+      --red-dark: #9B1E23;
+      --off-white: #F5F5F2;
+      --gray-light: #EAEAEA;
+      --gray-mid: #888;
+      --gray-dark: #333;
+      --white: #ffffff;
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--gray-dark);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 36px; width: auto; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .nav-logo-text span:first-child {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo-text span:last-child {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: var(--red);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 8px 18px;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    #inicio {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #163060 60%, #0F2347 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 5%;
+    }
+
+    #inicio::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(47, 126, 199, 0.12);
+      pointer-events: none;
+    }
+
+    #inicio::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(192, 39, 45, 0.08);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(192, 39, 45, 0.2);
+      color: #F4A0A3;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(192, 39, 45, 0.3);
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text h1 span { color: var(--blue-light); }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .hero-stat span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo-big {
+      width: min(320px, 80vw);
+      filter: drop-shadow(0 20px 60px rgba(47, 126, 199, 0.3));
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ─── WHY SECTION ─── */
+    #por-que {
+      background: var(--off-white);
+      padding: 5rem 5%;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      max-width: 540px;
+      margin-bottom: 3rem;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pillar {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.8rem;
+      border: 1px solid var(--gray-light);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .pillar:hover { box-shadow: 0 8px 32px rgba(27,58,107,0.1); transform: translateY(-3px); }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .pillar-icon.navy { background: rgba(27,58,107,0.1); }
+    .pillar-icon.blue { background: rgba(47,126,199,0.1); }
+    .pillar-icon.red  { background: rgba(192,39,45,0.1); }
+    .pillar-icon.green { background: rgba(22,160,90,0.1); }
+
+    .pillar h3 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .pillar p { font-size: 0.875rem; color: var(--gray-mid); }
+
+    /* ─── SERVICES ─── */
+    #servicios { padding: 5rem 5%; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .service-card {
+      border: 1px solid var(--gray-light);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+
+    .service-card:hover { box-shadow: 0 12px 40px rgba(27,58,107,0.12); transform: translateY(-4px); }
+
+    .service-card-header {
+      padding: 1.8rem 1.8rem 1rem;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-icon.auto { background: rgba(27,58,107,0.08); }
+    .service-icon.dev  { background: rgba(47,126,199,0.1); }
+    .service-icon.dash { background: rgba(192,39,45,0.08); }
+
+    .service-card-header h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card-header p {
+      font-size: 0.875rem;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    .service-card-body { padding: 1.2rem 1.8rem 1.8rem; }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .service-list li {
+      font-size: 0.85rem;
+      color: var(--gray-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .service-list li::before {
+      content: '✓';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .service-link {
+      display: inline-block;
+      margin-top: 1.2rem;
+      color: var(--blue);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .service-link:hover { color: var(--navy); }
+
+    /* ─── ABOUT ─── */
+    #nosotros {
+      background: var(--navy);
+      padding: 5rem 5%;
+      color: var(--white);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text .section-tag { color: #F4A0A3; }
+
+    .about-text .section-title { color: var(--white); }
+
+    .about-text p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .about-value {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-value-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .about-value-content strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .about-value-content span {
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .about-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .about-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .about-card .role {
+      font-size: 0.8rem;
+      color: var(--blue-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-card p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .about-tag {
+      background: rgba(47,126,199,0.2);
+      color: #90C4F0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(47,126,199,0.25);
+    }
+
+    /* ─── TESTIMONIOS ─── */
+    #testimonios {
+      background: var(--off-white);
+      padding: 5rem 5%;
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      border-radius: 14px;
+      padding: 1.8rem;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '"';
+      font-family: var(--font-head);
+      font-size: 4rem;
+      color: var(--blue-light);
+      opacity: 0.25;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      padding-top: 0.8rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid var(--gray-light);
+      padding-top: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .testimonial-avatar.av1 { background: var(--navy); }
+    .testimonial-avatar.av2 { background: var(--blue); }
+    .testimonial-avatar.av3 { background: var(--red); }
+
+    .testimonial-author-info strong {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .testimonial-author-info span {
+      font-size: 0.775rem;
+      color: var(--gray-mid);
+    }
+
+    .stars { color: #F5A623; font-size: 0.8rem; margin-bottom: 0.2rem; }
+
+    /* ─── CONTACT ─── */
+    #contacto { padding: 5rem 5%; }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info { }
+
+    .contact-info .section-title { margin-bottom: 0.8rem; }
+
+    .contact-info p {
+      font-size: 0.925rem;
+      color: var(--gray-mid);
+      margin-bottom: 2rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(27,58,107,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-content strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .contact-item-content a,
+    .contact-item-content span {
+      font-size: 0.85rem;
+      color: var(--gray-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item-content a:hover { color: var(--blue); }
+
+    .contact-form {
+      background: var(--off-white);
+      border-radius: 16px;
+      padding: 2.4rem;
+      border: 1px solid var(--gray-light);
+    }
+
+    .contact-form h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.3px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(47,126,199,0.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 13px 28px;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-submit:hover { background: var(--blue); transform: translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0D1F3C;
+      color: rgba(255,255,255,0.65);
+      padding: 3rem 5% 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+
+    .footer-brand p {
+      font-size: 0.825rem;
+      margin-top: 0.6rem;
+      max-width: 260px;
+      line-height: 1.6;
+    }
+
+    .footer-links h4 {
+      font-family: var(--font-head);
+      color: var(--white);
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.825rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--blue-light); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      font-size: 0.775rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-light); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; width: 100%; background: var(--white); border-bottom: 1px solid var(--gray-light); padding: 1rem 5%; gap: 1rem; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+      .hero-text p { margin: 0 auto 2rem; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-logo-big { width: 200px; }
+      .about-inner { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 20 L40 40 L20 60" stroke="#1B3A6B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="35" y1="40" x2="60" y2="22" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="60" cy="22" r="7" fill="#2F7EC7"/>
+      <circle cx="28" cy="55" r="7" fill="#C0272D"/>
+      <defs>
+        <linearGradient id="g1" x1="35" y1="40" x2="60" y2="22" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#C0272D"/>
+          <stop offset="100%" stop-color="#2F7EC7"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="nav-logo-text">
+      <span>SMART</span>
+      <span>Process CR</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto" class="nav-cta">Contáctenos</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="inicio">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Costa Rica · Soluciones digitales</div>
+      <h1>Transforma tus procesos en <span>ventajas competitivas</span></h1>
+      <p>Automatizamos procesos, desarrollamos software a medida y creamos dashboards en Excel para que tu empresa opere más inteligente, rápida y sin errores.</p>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-primary">Solicita una consulta gratis</a>
+        <a href="#servicios" class="btn-outline">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Soluciones personalizadas</span>
+        </div>
+        <div class="hero-stat">
+          <strong>CR</strong>
+          <span>Con foco en empresas locales</span>
+        </div>
+        <div class="hero-stat">
+          <strong>Ágil</strong>
+          <span>Entregas rápidas y concretas</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-logo-big" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="150" fill="rgba(255,255,255,0.05)"/>
+        <circle cx="150" cy="150" r="120" fill="rgba(255,255,255,0.04)"/>
+        <path d="M80 80 L150 150 L80 220" stroke="#1B3A6B" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="140" y1="150" x2="220" y2="85" stroke="url(#hg1)" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="220" cy="85" r="22" fill="#2F7EC7" opacity="0.95"/>
+        <circle cx="95" cy="202" r="22" fill="#C0272D" opacity="0.95"/>
+        <circle cx="220" cy="85" r="10" fill="white" opacity="0.4"/>
+        <circle cx="95" cy="202" r="10" fill="white" opacity="0.3"/>
+        <defs>
+          <linearGradient id="hg1" x1="140" y1="150" x2="220" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#C0272D"/>
+            <stop offset="100%" stop-color="#2F7EC7"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POR QUÉ ─── -->
+<section id="por-que">
+  <div class="section-inner">
+    <p class="section-tag">¿Por qué Smart Process CR?</p>
+    <h2 class="section-title">Resultados concretos, no promesas vacías</h2>
+    <p class="section-sub">Combinamos tecnología práctica con conocimiento del negocio costarricense para entregar soluciones que realmente funcionan.</p>
+    <div class="pillars">
+      <div class="pillar fade-in">
+        <div class="pillar-icon navy">⚡</div>
+        <h3>Ahorro de tiempo</h3>
+        <p>Eliminamos tareas manuales y repetitivas que consumen horas valiosas de tu equipo.</p>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pillar-icon blue">📊</div>
+        <h3>Datos claros</h3>
+        <p>Reportes y dashboards que te permiten tomar decisiones rápidas con información actualizada.</p>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pillar-icon red">🛡️</div>
+        <h3>Menos errores</h3>
+        <p>Procesos automatizados significan menos intervención manual y menos probabilidad de errores costosos.</p>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pillar-icon green">🚀</div>
+        <h3>Crecimiento escalable</h3>
+        <p>Soluciones que crecen con tu empresa sin necesidad de invertir constantemente en recursos nuevos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICIOS ─── -->
+<section id="servicios">
+  <div class="section-inner">
+    <p class="section-tag">Lo que hacemos</p>
+    <h2 class="section-title">Nuestros servicios</h2>
+    <p class="section-sub">Soluciones tecnológicas diseñadas para empresas que quieren operar de forma más eficiente.</p>
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <div class="service-icon auto">⚙️</div>
+          <h3>Automatización de Procesos</h3>
+          <p>Convertimos flujos de trabajo manuales y repetitivos en procesos automáticos que operan sin intervención humana.</p>
+        </div>
+        <div class="service-card-body">
+          <ul class="service-list">
+            <li>Automatización con macros y VBA en Excel</li>
+            <li>Integraciones entre sistemas empresariales</li>
+            <li>Flujos de aprobación y notificaciones automáticas</li>
+            <li>Procesamiento y limpieza de datos masivos</li>
+          </ul>
+          <a href="#contacto" class="service-link">Consultar este servicio →</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <div class="service-icon dev">💻</div>
+          <h3>Desarrollo de Software</h3>
+          <p>Creamos aplicaciones web y herramientas digitales a medida que resuelven los problemas específicos de tu negocio.</p>
+        </div>
+        <div class="service-card-body">
+          <ul class="service-list">
+            <li>Aplicaciones web con React y tecnologías modernas</li>
+            <li>Sistemas de gestión internos (CRM, inventario, etc.)</li>
+            <li>APIs e integraciones con plataformas externas</li>
+            <li>Plataformas SaaS escalables en la nube</li>
+          </ul>
+          <a href="#contacto" class="service-link">Consultar este servicio →</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <div class="service-icon dash">📈</div>
+          <h3>Dashboards y Reportería en Excel</h3>
+          <p>Transformamos hojas de cálculo complicadas en tableros de control visuales, dinámicos y fáciles de interpretar.</p>
+        </div>
+        <div class="service-card-body">
+          <ul class="service-list">
+            <li>Dashboards interactivos con gráficos profesionales</li>
+            <li>Reportes automáticos con actualización dinámica</li>
+            <li>Power Query y Power Pivot para análisis avanzado</li>
+            <li>Indicadores clave (KPIs) personalizados para tu área</li>
+          </ul>
+          <a href="#contacto" class="service-link">Consultar este servicio →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── NOSOTROS ─── -->
+<section id="nosotros">
+  <div class="about-inner">
+    <div class="about-text fade-in">
+      <p class="section-tag">Sobre nosotros</p>
+      <h2 class="section-title">Tecnología con propósito, para Costa Rica</h2>
+      <p>Somos un emprendimiento costarricense enfocado en llevar soluciones tecnológicas de alto impacto a empresas que quieren crecer sin depender de procesos lentos y manuales.</p>
+      <p>Creemos que la automatización y el software bien diseñado no son solo para las grandes corporaciones. Con el enfoque correcto, cualquier empresa puede operar al nivel de un gigante.</p>
+      <div class="about-values">
+        <div class="about-value">
+          <div class="about-value-dot"></div>
+          <div class="about-value-content">
+            <strong>Cercanía y comunicación directa</strong>
+            <span>Trabajamos codo a codo con el cliente, sin intermediarios ni burocracia.</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <div class="about-value-dot"></div>
+          <div class="about-value-content">
+            <strong>Soluciones que realmente funcionan</strong>
+            <span>No entregamos código, entregamos resultados medibles en tu operación.</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <div class="about-value-dot"></div>
+          <div class="about-value-content">
+            <strong>Compromiso con el resultado final</strong>
+            <span>El proyecto no termina hasta que la solución esté funcionando correctamente.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-card fade-in">
+      <div class="about-avatar">SP</div>
+      <h3>Fundador &amp; Desarrollador Principal</h3>
+      <p class="role">Smart Process CR</p>
+      <p>Profesional en tecnología con experiencia en automatización, desarrollo de software y análisis de datos. Apasionado por crear soluciones que simplifiquen la operación de empresas costarricenses.</p>
+      <div class="about-tags">
+        <span class="about-tag">Excel &amp; VBA</span>
+        <span class="about-tag">React</span>
+        <span class="about-tag">Node.js</span>
+        <span class="about-tag">Automatización</span>
+        <span class="about-tag">SQL</span>
+        <span class="about-tag">Power BI</span>
+        <span class="about-tag">Costa Rica 🇨🇷</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIOS ─── -->
+<section id="testimonios">
+  <div class="section-inner">
+    <p class="section-tag">Testimonios</p>
+    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    <p class="section-sub">Resultados reales de empresas que confiaron en Smart Process CR.</p>
+    <div class="testimonios-grid">
+
+      <div class="testimonial fade-in">
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">El dashboard que nos desarrollaron transformó la forma en que presentamos datos a gerencia. Lo que antes tomaba dos horas cada semana ahora se genera automáticamente en segundos.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av1">MC</div>
+          <div class="testimonial-author-info">
+            <strong>María C.</strong>
+            <span>Gerente Administrativa · Empresa distribuidora</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">Necesitábamos un sistema interno para manejar citas y clientes. Smart Process CR lo entregó exactamente como lo pedimos, a tiempo y con soporte posterior excelente.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av2">JR</div>
+          <div class="testimonial-author-info">
+            <strong>Jorge R.</strong>
+            <span>Dueño · Negocio de servicios</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-text">La automatización de nuestros reportes de ventas nos ahorró horas de trabajo manual. El equipo trabajó con nosotros para entender exactamente lo que necesitábamos.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av3">LP</div>
+          <div class="testimonial-author-info">
+            <strong>Laura P.</strong>
+            <span>Coordinadora de Ventas · PyME local</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACTO ─── -->
+<section id="contacto">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-info fade-in">
+        <p class="section-tag">Contacto</p>
+        <h2 class="section-title">¿Listo para automatizar tu negocio?</h2>
+        <p>Conversemos sobre tu proyecto. La primera consulta es completamente gratuita y sin compromiso.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-content">
+              <strong>Correo electrónico</strong>
+              <a href="mailto:contacto@smartprocesscr.com">contacto@smartprocesscr.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div class="contact-item-content">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/50600000000" target="_blank">+506 0000-0000</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-content">
+              <strong>Ubicación</strong>
+              <span>Costa Rica · Atención remota a todo el país</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-content">
+              <strong>Horario de atención</strong>
+              <span>Lunes a viernes, 8:00 am – 6:00 pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-in">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" />
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" placeholder="Tu empresa (opcional)" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" placeholder="tu@correo.com" />
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio">
+            <option value="">Selecciona un servicio…</option>
+            <option>Automatización de procesos</option>
+            <option>Desarrollo de software</option>
+            <option>Dashboards y reportería en Excel</option>
+            <option>Otro / No estoy seguro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">¿Cómo podemos ayudarte?</label>
+          <textarea id="mensaje" placeholder="Cuéntanos brevemente tu necesidad o proyecto…"></textarea>
+        </div>
+        <button class="btn-submit" onclick="handleSubmit()">Enviar mensaje →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+          <svg height="30" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 20 L40 40 L20 60" stroke="#2F7EC7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="35" y1="40" x2="60" y2="22" stroke="url(#fg1)" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="60" cy="22" r="7" fill="#2F7EC7"/>
+            <circle cx="28" cy="55" r="7" fill="#C0272D"/>
+            <defs><linearGradient id="fg1" x1="35" y1="40" x2="60" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C0272D"/><stop offset="100%" stop-color="#2F7EC7"/></linearGradient></defs>
+          </svg>
+          <span style="font-family:var(--font-head);font-weight:700;color:white;font-size:1rem;">SMART <span style="color:#C0272D;">Process CR</span></span>
+        </div>
+        <p>Automatización, software y dashboards para empresas costarricenses que quieren crecer con tecnología.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Automatización de procesos</a></li>
+          <li><a href="#servicios">Desarrollo de software</a></li>
+          <li><a href="#servicios">Dashboards en Excel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Smart Process CR. Todos los derechos reservados.</span>
+      <a href="mailto:contacto@smartprocesscr.com">contacto@smartprocesscr.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submit placeholder
+  function handleSubmit() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!nombre || !email) {
+      alert('Por favor completa al menos tu nombre y correo electrónico.');
+      return;
+    }
+    alert('¡Gracias, ' + nombre + '! Nos pondremos en contacto contigo muy pronto.');
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('#nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('nav-links').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
